@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="280" height="48" viewBox="0 0 280 48" fill="none">
+  <!-- Sidequest Ventures — Horizontal Lockup (Light) -->
+  <g transform="translate(0, 2)">
+    <!-- Logo mark scaled to 44px -->
+    <g transform="scale(0.6875)">
+      <circle cx="4" cy="48" r="3.5" fill="#d4d4d8"/>
+      <path d="M4 48L18 38" stroke="#d4d4d8" stroke-width="2.5" stroke-linecap="round"/>
+      <path d="M18 38L34 28" stroke="#d4d4d8" stroke-width="2" stroke-linecap="round" stroke-dasharray="3 3"/>
+      <path d="M34 28L50 18" stroke="#d4d4d8" stroke-width="2" stroke-linecap="round" stroke-dasharray="3 3"/>
+      <path d="M50 18L60 10" stroke="#d4d4d8" stroke-width="2.5" stroke-linecap="round"/>
+      <circle cx="60" cy="10" r="3.5" fill="#d4d4d8"/>
+      <circle cx="18" cy="38" r="3" fill="#6d28d9"/>
+      <path d="M18 38L14 26L34 28" stroke="#6d28d9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <circle cx="14" cy="26" r="2.5" fill="#6d28d9" opacity="0.7"/>
+      <circle cx="34" cy="28" r="3" fill="#6d28d9"/>
+      <path d="M34 28L28 48L44 56L56 40L50 18" stroke="#0891b2" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <circle cx="28" cy="48" r="2.5" fill="#0891b2" opacity="0.5"/>
+      <circle cx="44" cy="56" r="3.5" fill="#0891b2"/>
+      <circle cx="56" cy="40" r="2.5" fill="#0891b2" opacity="0.6"/>
+      <circle cx="50" cy="18" r="3" fill="#0891b2"/>
+    </g>
+  </g>
+  <!-- Wordmark -->
+  <text x="58" y="30" font-family="Inter, -apple-system, sans-serif" font-weight="600" font-size="20" letter-spacing="-0.5" fill="#0a0a0a">sidequest</text>
+  <text x="168" y="30" font-family="Inter, -apple-system, sans-serif" font-weight="600" font-size="20" letter-spacing="-0.5" fill="#6d28d9">.ventures</text>
+</svg>
