@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The 10x collapse — Sidequest Ventures</title>
+<meta name="description" content="When the cost of building drops by an order of magnitude, the bottleneck shifts from engineering to taste.">
+<meta property="og:title" content="The 10x collapse — Sidequest Ventures">
+<meta property="og:description" content="When the cost of building drops by an order of magnitude, the bottleneck shifts from engineering to taste.">
+<meta property="og:image" content="/assets/og-image.png">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://sidequest.ventures/blog/the-10x-collapse.html">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { background: #08080d; color: #a1a1aa; font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; font-size: 15px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+a { color: #8b5cf6; text-decoration: none; transition: color 0.2s; }
+a:hover { color: #a78bfa; }
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(8,8,13,0.85); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.04); }
+nav::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent 0%, #8b5cf6 25%, #06b6d4 50%, #10b981 75%, transparent 100%); opacity: 0.15; }
+.nav-inner { max-width: 1120px; margin: 0 auto; padding: 0 40px; display: flex; justify-content: space-between; align-items: center; height: 64px; }
+.nav-logo { display: flex; align-items: center; gap: 12px; }
+.nav-logo span { font-weight: 600; font-size: 16px; color: #fafafa; letter-spacing: -0.3px; }
+.nav-logo .accent { color: #8b5cf6; }
+.nav-links { display: flex; gap: 32px; }
+.nav-links a { font-size: 13px; color: #52525b; text-decoration: none; transition: color 0.2s; letter-spacing: 0.3px; }
+.nav-links a:hover { color: #a1a1aa; }
+.article-header { max-width: 680px; margin: 0 auto; padding: 140px 40px 48px; }
+.article-back { display: inline-flex; align-items: center; gap: 6px; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #52525b; margin-bottom: 32px; transition: color 0.2s; }
+.article-back:hover { color: #8b5cf6; }
+.article-meta { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #52525b; margin-bottom: 16px; }
+.article-header h1 { font-size: 44px; font-weight: 700; letter-spacing: -1.5px; line-height: 1.1; color: #fafafa; margin-bottom: 20px; }
+.article-header .lede { font-size: 18px; line-height: 1.7; color: #71717a; }
+.article-tags { display: flex; gap: 8px; margin-top: 24px; }
+.tag { font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 500; padding: 3px 10px; border-radius: 4px; }
+.tag-purple { color: #8b5cf6; background: rgba(139,92,246,0.08); }
+.article-body { max-width: 680px; margin: 0 auto; padding: 0 40px 80px; }
+.article-body h2 { font-size: 28px; font-weight: 600; letter-spacing: -0.5px; color: #e4e4e7; margin: 48px 0 16px; line-height: 1.2; }
+.article-body p { margin-bottom: 20px; font-size: 16px; line-height: 1.8; }
+.article-body blockquote { border-left: 2px solid #8b5cf6; padding: 4px 0 4px 24px; margin: 32px 0; color: #71717a; font-style: italic; }
+.article-body .separator { display: flex; justify-content: center; padding: 40px 0; }
+footer { padding: 48px 0; border-top: 1px solid rgba(255,255,255,0.04); position: relative; }
+footer::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, #8b5cf6, #06b6d4, transparent); opacity: 0.12; }
+.footer-inner { max-width: 1120px; margin: 0 auto; padding: 0 40px; display: flex; justify-content: space-between; align-items: center; }
+.footer-left { display: flex; align-items: center; gap: 12px; }
+.footer-left span { font-size: 13px; color: #3f3f46; }
+.footer-right { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #3f3f46; }
+@media (max-width: 768px) { .article-header { padding: 120px 24px 32px; } .article-header h1 { font-size: 32px; } .article-body { padding: 0 24px 60px; } .nav-links { gap: 20px; } .footer-inner { padding: 0 24px; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <svg width="28" height="28" viewBox="0 0 64 64" fill="none"><path d="M6 50L18 40" stroke="#3f3f46" stroke-width="3" stroke-linecap="round"/><path d="M52 18L60 12" stroke="#3f3f46" stroke-width="3" stroke-linecap="round"/><circle cx="18" cy="40" r="4" fill="#8b5cf6"/><path d="M18 40L14 26L36 28" stroke="#8b5cf6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="36" cy="28" r="4" fill="#8b5cf6"/><path d="M36 28L28 56L56 40L52 18" stroke="#06b6d4" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="44" cy="56" r="4" fill="#06b6d4"/><circle cx="52" cy="18" r="3.5" fill="#06b6d4"/></svg>
+      <span>sidequest<span class="accent">.ventures</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="/#portfolio">Portfolio</a>
+      <a href="/#about">About</a>
+      <a href="/#blog">Blog</a>
+    </div>
+  </div>
+</nav>
+
+<article>
+  <div class="article-header">
+    <a href="/#blog" class="article-back">
+      <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M10 4l-4 4 4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      back to studio
+    </a>
+    <div class="article-meta">2026.01.15 · 7 min read</div>
+    <h1>The 10x collapse: what happens when building software costs nothing</h1>
+    <p class="lede">When the cost of building drops by an order of magnitude, the bottleneck shifts from engineering to taste. The winners will be the teams who know what to build, not how.</p>
+    <div class="article-tags">
+      <span class="tag tag-purple">future of work</span>
+    </div>
+  </div>
+
+  <div class="article-body">
+    <h2>The old economics</h2>
+    <p>For the past twenty years, building a software company followed a predictable script. You raised money — usually £1-3M — to hire engineers. You spent 6-12 months building a product. You launched, iterated, and hoped that the market wanted what you'd built. If it didn't, you pivoted, which meant spending another 6-12 months rebuilding.</p>
+    <p>The high cost of building created a natural barrier. It filtered for teams that could raise capital, which meant teams that could pitch, which meant teams that looked and sounded a certain way. The barrier wasn't intelligence or taste — it was access.</p>
+
+    <h2>The new economics</h2>
+    <p>AI has compressed the cost of building software by roughly 10x. This isn't hyperbole — it's what we're seeing in our own studio. Features that would have taken a team of four engineers a month now take one person a week. Entire products can be prototyped in days. The marginal cost of trying an idea has dropped from "significant investment" to "afternoon project."</p>
+    <p>This doesn't mean software engineers are obsolete. It means the ratio shifts. Instead of needing ten engineers and one product person, you need two engineers and one person with very good taste. The bottleneck is no longer "can we build this?" It's "should we build this?"</p>
+
+    <blockquote>The bottleneck is no longer "can we build this?" It's "should we build this?"</blockquote>
+
+    <h2>What taste means</h2>
+    <p>Taste, in this context, isn't about aesthetics (though that matters). It's about judgment. Knowing which problems are worth solving. Understanding what a customer means when they say they want X, and recognising that they actually need Y. Having the discipline to cut features that don't earn their place.</p>
+    <p>In the old model, taste was a luxury. You hired a designer, maybe a product person, but the engineering team drove the roadmap because they were the constraint. In the new model, taste is the constraint. You can build anything — the question is whether you should.</p>
+    <p>This is why the venture studio model makes sense right now. A studio is, fundamentally, a taste engine. A small team with strong opinions about what should exist, equipped with the tools to build it quickly and the discipline to kill it if it doesn't work.</p>
+
+    <h2>The flood</h2>
+    <p>The obvious consequence of cheaper building is more software. Every idea that was previously too expensive to try will now get tried. Markets that supported three competitors will have thirty. The App Store, already crowded, will become incomprehensibly dense.</p>
+    <p>This sounds like a problem, but it's actually the opportunity. When everyone can build, the differentiator isn't the building — it's everything else. Distribution. Brand. Trust. Customer intimacy. Design quality. The things that have always mattered but were often subordinated to engineering velocity.</p>
+    <p>The companies that win in a post-10x world will be the ones that never confused "we can build this" with "we should build this." They'll be smaller, faster, and more opinionated. They'll ship less code and more value. They'll be studios, not factories.</p>
+
+    <h2>What this means for investors</h2>
+    <p>If building is cheap, the traditional VC model — which prices in engineering cost as a primary risk — needs to recalibrate. A seed round that used to buy 12 months of engineering now buys 5 years of experimentation. The capital efficiency of a well-run studio is genuinely different from what the market has seen before.</p>
+    <p>The risk shifts too. The old risk was "can this team build a product?" The new risk is "does this team know what's worth building?" That's harder to assess from a pitch deck. It requires looking at the team's taste, judgment, and track record of making good decisions under uncertainty.</p>
+    <p>This is why we don't do demo days. You can't assess taste in eight minutes on a stage. You assess it by looking at what someone has built, used, and killed — and asking why.</p>
+
+    <div class="separator">
+      <svg width="120" height="12" viewBox="0 0 120 12" fill="none"><circle cx="4" cy="6" r="3" fill="#8b5cf6" opacity="0.4"/><path d="M7 6L35 6" stroke="#8b5cf6" stroke-width="1.5" stroke-linecap="round" opacity="0.2"/><circle cx="38" cy="6" r="2" fill="#06b6d4" opacity="0.3"/><path d="M40 6L70 6" stroke="#06b6d4" stroke-width="1" stroke-linecap="round" stroke-dasharray="3 3" opacity="0.15"/><circle cx="73" cy="6" r="2.5" fill="#10b981" opacity="0.3"/><path d="M76 6L120 6" stroke="#3f3f46" stroke-width="0.5" stroke-linecap="round" opacity="0.15"/></svg>
+    </div>
+  </div>
+</article>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-left">
+      <svg width="20" height="20" viewBox="0 0 64 64" fill="none"><path d="M8 50L20 40" stroke="#3f3f46" stroke-width="4" stroke-linecap="round"/><path d="M52 20L58 14" stroke="#3f3f46" stroke-width="4" stroke-linecap="round"/><circle cx="20" cy="40" r="5" fill="#8b5cf6"/><path d="M20 40L16 26L36 28" stroke="#8b5cf6" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="36" cy="28" r="5" fill="#8b5cf6"/><path d="M36 28L30 48L46 54L56 40L52 20" stroke="#06b6d4" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="46" cy="54" r="5" fill="#06b6d4"/></svg>
+      <span>© 2026 Sidequest Ventures Ltd · London, UK</span>
+    </div>
+    <div class="footer-right">sidequest.ventures</div>
+  </div>
+</footer>
+
+</body>
+</html>
