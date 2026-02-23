@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Why we don't do demo days — Sidequest Ventures</title>
+<meta name="description" content="The venture studio model isn't about showcasing potential. It's about proving viability before anyone's watching.">
+<meta property="og:title" content="Why we don't do demo days — Sidequest Ventures">
+<meta property="og:description" content="The venture studio model isn't about showcasing potential. It's about proving viability before anyone's watching.">
+<meta property="og:image" content="/assets/og-image.png">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://sidequest.ventures/blog/why-we-dont-do-demo-days.html">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: #08080d; color: #a1a1aa;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 15px; line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: #8b5cf6; text-decoration: none; transition: color 0.2s; }
+a:hover { color: #a78bfa; }
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(8,8,13,0.85); backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+nav::after {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent 0%, #8b5cf6 25%, #06b6d4 50%, #10b981 75%, transparent 100%);
+  opacity: 0.15;
+}
+.nav-inner {
+  max-width: 1120px; margin: 0 auto; padding: 0 40px;
+  display: flex; justify-content: space-between; align-items: center; height: 64px;
+}
+.nav-logo { display: flex; align-items: center; gap: 12px; }
+.nav-logo span { font-weight: 600; font-size: 16px; color: #fafafa; letter-spacing: -0.3px; }
+.nav-logo .accent { color: #8b5cf6; }
+.nav-links { display: flex; gap: 32px; }
+.nav-links a { font-size: 13px; color: #52525b; text-decoration: none; transition: color 0.2s; letter-spacing: 0.3px; }
+.nav-links a:hover { color: #a1a1aa; }
+
+/* ARTICLE */
+.article-header {
+  max-width: 680px; margin: 0 auto; padding: 140px 40px 48px;
+}
+.article-back {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: 'JetBrains Mono', monospace; font-size: 12px;
+  color: #52525b; margin-bottom: 32px; transition: color 0.2s;
+}
+.article-back:hover { color: #8b5cf6; }
+.article-meta {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px; color: #52525b; margin-bottom: 16px;
+}
+.article-header h1 {
+  font-size: 44px; font-weight: 700; letter-spacing: -1.5px;
+  line-height: 1.1; color: #fafafa; margin-bottom: 20px;
+}
+.article-header .lede {
+  font-size: 18px; line-height: 1.7; color: #71717a;
+}
+.article-tags { display: flex; gap: 8px; margin-top: 24px; }
+.tag {
+  font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 500;
+  padding: 3px 10px; border-radius: 4px;
+}
+.tag-purple { color: #8b5cf6; background: rgba(139,92,246,0.08); }
+.tag-cyan { color: #06b6d4; background: rgba(6,182,212,0.08); }
+
+/* ARTICLE BODY */
+.article-body {
+  max-width: 680px; margin: 0 auto; padding: 0 40px 80px;
+}
+.article-body h2 {
+  font-size: 28px; font-weight: 600; letter-spacing: -0.5px;
+  color: #e4e4e7; margin: 48px 0 16px; line-height: 1.2;
+}
+.article-body h3 {
+  font-size: 22px; font-weight: 600; letter-spacing: -0.3px;
+  color: #e4e4e7; margin: 36px 0 12px; line-height: 1.3;
+}
+.article-body p {
+  margin-bottom: 20px; font-size: 16px; line-height: 1.8;
+}
+.article-body blockquote {
+  border-left: 2px solid #8b5cf6;
+  padding: 4px 0 4px 24px; margin: 32px 0;
+  color: #71717a; font-style: italic;
+}
+.article-body .separator {
+  display: flex; justify-content: center; padding: 40px 0;
+}
+
+/* FOOTER */
+footer {
+  padding: 48px 0;
+  border-top: 1px solid rgba(255,255,255,0.04);
+  position: relative;
+}
+footer::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, #8b5cf6, #06b6d4, transparent);
+  opacity: 0.12;
+}
+.footer-inner {
+  max-width: 1120px; margin: 0 auto; padding: 0 40px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.footer-left { display: flex; align-items: center; gap: 12px; }
+.footer-left span { font-size: 13px; color: #3f3f46; }
+.footer-right { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #3f3f46; }
+
+@media (max-width: 768px) {
+  .article-header { padding: 120px 24px 32px; }
+  .article-header h1 { font-size: 32px; letter-spacing: -1px; }
+  .article-body { padding: 0 24px 60px; }
+  .nav-links { gap: 20px; }
+  .footer-inner { padding: 0 24px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <svg width="28" height="28" viewBox="0 0 64 64" fill="none">
+        <path d="M6 50L18 40" stroke="#3f3f46" stroke-width="3" stroke-linecap="round"/>
+        <path d="M52 18L60 12" stroke="#3f3f46" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="18" cy="40" r="4" fill="#8b5cf6"/>
+        <path d="M18 40L14 26L36 28" stroke="#8b5cf6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <circle cx="36" cy="28" r="4" fill="#8b5cf6"/>
+        <path d="M36 28L28 48L44 56L56 40L52 18" stroke="#06b6d4" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <circle cx="44" cy="56" r="4" fill="#06b6d4"/>
+        <circle cx="52" cy="18" r="3.5" fill="#06b6d4"/>
+      </svg>
+      <span>sidequest<span class="accent">.ventures</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="/#portfolio">Portfolio</a>
+      <a href="/#about">About</a>
+      <a href="/#blog">Blog</a>
+    </div>
+  </div>
+</nav>
+
+<article>
+  <div class="article-header">
+    <a href="/#blog" class="article-back">
+      <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M10 4l-4 4 4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      back to studio
+    </a>
+    <div class="article-meta">2026.02.18 · 6 min read</div>
+    <h1>Why we don't do demo days</h1>
+    <p class="lede">The venture studio model isn't about showcasing potential. It's about proving viability before anyone's watching. We build in the dark until it works — then we show up with revenue, not slides.</p>
+    <div class="article-tags">
+      <span class="tag tag-purple">venture studios</span>
+      <span class="tag tag-cyan">strategy</span>
+    </div>
+  </div>
+
+  <div class="article-body">
+    <h2>The performance problem</h2>
+    <p>Every accelerator cohort ends the same way: twelve startups on a stage, eight minutes each, a room full of investors who've already decided where to park their cheques. The startups that perform well get funded. The ones that don't, often don't.</p>
+    <p>That's a selection process optimised for presentation skill, not product quality. And it creates a perverse incentive — spend the final weeks of your programme polishing a pitch instead of polishing the product.</p>
+    <p>We don't do demo days because we're not an accelerator. We're a studio. The distinction matters more than most people think.</p>
+
+    <h2>Studios build differently</h2>
+    <p>An accelerator takes external founders, adds resources, and hopes for the best. The hit rate is low by design — the model works because a tiny percentage of bets pay for all the losses.</p>
+    <p>A studio builds companies from the inside. The team that identifies the opportunity is the team that builds the product. There's no handoff, no pitch, no "are you coachable?" gut check. The intellectual honesty is baked in because you're accountable to yourself.</p>
+    <p>This changes the economics. Instead of betting on 50 teams and hoping 2 survive, you build 5 things with high conviction and expect 3 to work. The cost per experiment is lower. The signal-to-noise ratio is higher. The failure mode is "we killed it early" rather than "they ran out of runway."</p>
+
+    <blockquote>Some sidequests are quick experiments. Others become the whole story. We won't know which until we build them.</blockquote>
+
+    <h2>What we do instead</h2>
+    <p>Instead of demo days, we have kill decisions. Every venture in the studio gets a clear set of conditions that would cause us to shut it down: no product-market fit signal by week 8, customer acquisition cost above a threshold, retention curve that flattens in the wrong place.</p>
+    <p>This is the opposite of a pitch. A pitch is designed to make something sound inevitable. A kill decision is designed to find the cracks before you've poured concrete.</p>
+    <p>When a venture survives the kill decisions and starts generating revenue, it doesn't need a demo day. It needs an operating team, a cap table, and a plan. That's when we raise — with data, not decks.</p>
+
+    <h2>The AI advantage</h2>
+    <p>AI has compressed the cost of building software by an order of magnitude. What used to take a team of twelve engineers six months can now be done by two people in six weeks. This is the structural shift that makes the studio model work.</p>
+    <p>When building is cheap, experimentation is cheap. When experimentation is cheap, you can afford to be honest about what isn't working. You don't need to cling to a narrative because you've sunk $2M into it. You can just... stop. And start the next one.</p>
+    <p>Demo days are built for a world where starting a company is expensive and irreversible. We live in a world where it's cheap and iterative. The ceremony doesn't fit the reality.</p>
+
+    <h2>Building in the dark</h2>
+    <p>There's a line we use internally: "build in the dark until it works." It's not about stealth mode or secrecy. It's about focus. When you're performing for an audience, you optimise for applause. When you're building for customers, you optimise for retention.</p>
+    <p>We'll share what we're doing when there's something worth sharing. Not a prototype. Not a landing page. A business. With customers, revenue, and a thesis that's been tested against reality.</p>
+    <p>That's not a demo day. That's just Tuesday.</p>
+
+    <div class="separator">
+      <svg width="120" height="12" viewBox="0 0 120 12" fill="none">
+        <circle cx="4" cy="6" r="3" fill="#8b5cf6" opacity="0.4"/>
+        <path d="M7 6L35 6" stroke="#8b5cf6" stroke-width="1.5" stroke-linecap="round" opacity="0.2"/>
+        <circle cx="38" cy="6" r="2" fill="#06b6d4" opacity="0.3"/>
+        <path d="M40 6L70 6" stroke="#06b6d4" stroke-width="1" stroke-linecap="round" stroke-dasharray="3 3" opacity="0.15"/>
+        <circle cx="73" cy="6" r="2.5" fill="#10b981" opacity="0.3"/>
+        <path d="M76 6L120 6" stroke="#3f3f46" stroke-width="0.5" stroke-linecap="round" opacity="0.15"/>
+      </svg>
+    </div>
+  </div>
+</article>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-left">
+      <svg width="20" height="20" viewBox="0 0 64 64" fill="none">
+        <path d="M8 50L20 40" stroke="#3f3f46" stroke-width="4" stroke-linecap="round"/>
+        <path d="M52 20L58 14" stroke="#3f3f46" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="20" cy="40" r="5" fill="#8b5cf6"/>
+        <path d="M20 40L16 26L36 28" stroke="#8b5cf6" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <circle cx="36" cy="28" r="5" fill="#8b5cf6"/>
+        <path d="M36 28L30 48L46 54L56 40L52 20" stroke="#06b6d4" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <circle cx="46" cy="54" r="5" fill="#06b6d4"/>
+      </svg>
+      <span>© 2026 Sidequest Ventures Ltd · London, UK</span>
+    </div>
+    <div class="footer-right">sidequest.ventures</div>
+  </div>
+</footer>
+
+</body>
+</html>
