@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sidequest Ventures — AI Venture Studio</title>
+<meta name="description" content="A dark software factory that builds AI-native companies from scratch. We find the signal in the noise and build what should exist.">
+<meta property="og:title" content="Sidequest Ventures — AI Venture Studio">
+<meta property="og:description" content="A dark software factory that builds AI-native companies from scratch.">
+<meta property="og:image" content="/assets/og-image.png">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sidequest.ventures">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sidequest Ventures — AI Venture Studio">
+<meta name="twitter:description" content="A dark software factory that builds AI-native companies from scratch.">
+<meta name="twitter:image" content="/assets/og-image.png">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/social-profile-180.png">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════ */
+/* RESET & BASE                            */
+/* ═══════════════════════════════════════ */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: #08080d;
+  color: #a1a1aa;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 15px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: #8b5cf6; text-decoration: none; transition: color 0.2s; }
+a:hover { color: #a78bfa; }
+
+/* ═══════════════════════════════════════ */
+/* LAYOUT                                  */
+/* ═══════════════════════════════════════ */
+.container { max-width: 1120px; margin: 0 auto; padding: 0 40px; }
+section { padding: 100px 0; position: relative; }
+
+/* ═══════════════════════════════════════ */
+/* BACKGROUND PATH MOTIFS                  */
+/* ═══════════════════════════════════════ */
+.bg-paths {
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  pointer-events: none; overflow: hidden; z-index: 0;
+}
+.bg-paths svg { width: 100%; height: 100%; }
+
+/* ═══════════════════════════════════════ */
+/* NAV                                     */
+/* ═══════════════════════════════════════ */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(8,8,13,0.85);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+nav::after {
+  content: '';
+  position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent 0%, #8b5cf6 25%, #06b6d4 50%, #10b981 75%, transparent 100%);
+  opacity: 0.15;
+}
+.nav-inner {
+  max-width: 1120px; margin: 0 auto; padding: 0 40px;
+  display: flex; justify-content: space-between; align-items: center;
+  height: 64px;
+}
+.nav-logo { display: flex; align-items: center; gap: 12px; }
+.nav-logo span { font-weight: 600; font-size: 16px; color: #fafafa; letter-spacing: -0.3px; }
+.nav-logo .accent { color: #8b5cf6; }
+.nav-links { display: flex; gap: 32px; }
+.nav-links a {
+  font-size: 13px; color: #52525b; text-decoration: none;
+  transition: color 0.2s; letter-spacing: 0.3px;
+}
+.nav-links a:hover { color: #a1a1aa; }
+
+/* ═══════════════════════════════════════ */
+/* HERO                                    */
+/* ═══════════════════════════════════════ */
+.hero {
+  min-height: 100vh;
+  display: flex; align-items: center;
+  padding-top: 64px;
+  position: relative;
+  overflow: hidden;
+}
+.hero-content { position: relative; z-index: 1; max-width: 720px; }
+.hero-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px; color: #8b5cf6;
+  margin-bottom: 24px; letter-spacing: 0.5px;
+}
+.hero h1 {
+  font-size: 56px; font-weight: 800; letter-spacing: -2px;
+  line-height: 1.05; color: #fafafa; margin-bottom: 28px;
+}
+.hero h1 .dot { color: #8b5cf6; }
+.hero p {
+  font-size: 18px; line-height: 1.7; color: #71717a;
+  max-width: 540px; margin-bottom: 40px;
+}
+.hero-cta {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 14px; font-weight: 500; color: #fafafa;
+  padding: 12px 28px;
+  background: rgba(139,92,246,0.1);
+  border: 1px solid rgba(139,92,246,0.25);
+  border-radius: 8px;
+  transition: all 0.3s;
+}
+.hero-cta:hover {
+  background: rgba(139,92,246,0.18);
+  border-color: rgba(139,92,246,0.4);
+  color: #fafafa;
+}
+.hero-cta svg { transition: transform 0.3s; }
+.hero-cta:hover svg { transform: translateX(3px); }
+
+/* Hero background orbs */
+.hero-orb {
+  position: absolute; border-radius: 50%;
+  filter: blur(80px);
+}
+.hero-orb-1 {
+  width: 500px; height: 500px;
+  top: 10%; right: -5%;
+  background: rgba(139,92,246,0.06);
+}
+.hero-orb-2 {
+  width: 350px; height: 350px;
+  bottom: 15%; right: 15%;
+  background: rgba(6,182,212,0.04);
+}
+
+/* ═══════════════════════════════════════ */
+/* SECTION HEADERS                         */
+/* ═══════════════════════════════════════ */
+.section-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px; color: #8b5cf6;
+  letter-spacing: 0.5px; margin-bottom: 16px;
+}
+.section-divider {
+  display: flex; align-items: center; gap: 16px;
+  margin-bottom: 48px;
+}
+.section-divider h2 {
+  font-size: 36px; font-weight: 700; letter-spacing: -1px;
+  color: #fafafa; white-space: nowrap;
+}
+.section-divider-line {
+  flex: 1; height: 1px;
+  background: linear-gradient(90deg, rgba(139,92,246,0.3), rgba(6,182,212,0.15), transparent);
+}
+.section-divider-nodes {
+  display: flex; align-items: center; gap: 0;
+}
+
+/* ═══════════════════════════════════════ */
+/* PORTFOLIO                               */
+/* ═══════════════════════════════════════ */
+#portfolio { border-top: 1px solid rgba(255,255,255,0.03); }
+
+.portfolio-grid {
+  display: flex; flex-direction: column; gap: 0;
+}
+.portfolio-card {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 16px;
+  padding: 40px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.3s, transform 0.3s;
+}
+.portfolio-card:hover {
+  border-color: rgba(139,92,246,0.2);
+  transform: translateY(-2px);
+}
+.portfolio-card::before {
+  content: '';
+  position: absolute; top: -30px; right: -30px;
+  width: 100px; height: 100px;
+  border-radius: 50%; opacity: 0.04;
+}
+.portfolio-card:nth-child(1)::before { background: #8b5cf6; }
+.portfolio-card:nth-child(2)::before { background: #06b6d4; }
+.portfolio-card:nth-child(3)::before { background: #10b981; }
+
+.portfolio-card-header {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  margin-bottom: 12px;
+}
+.portfolio-card h3 {
+  font-size: 22px; font-weight: 600; letter-spacing: -0.3px; color: #e4e4e7;
+}
+.portfolio-tags { display: flex; gap: 8px; }
+.tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; font-weight: 500;
+  padding: 3px 10px; border-radius: 4px;
+}
+.tag-purple { color: #8b5cf6; background: rgba(139,92,246,0.08); }
+.tag-cyan { color: #06b6d4; background: rgba(6,182,212,0.08); }
+.tag-emerald { color: #10b981; background: rgba(16,185,129,0.08); }
+
+.portfolio-card p {
+  font-size: 15px; color: #71717a; line-height: 1.7; max-width: 600px;
+}
+
+/* Card connectors */
+.portfolio-connector {
+  display: flex; justify-content: center;
+  padding: 4px 0;
+}
+
+/* ═══════════════════════════════════════ */
+/* ABOUT / THESIS                          */
+/* ═══════════════════════════════════════ */
+#about { border-top: 1px solid rgba(255,255,255,0.03); }
+
+.about-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 48px;
+}
+.about-text h3 {
+  font-size: 28px; font-weight: 600; letter-spacing: -0.5px;
+  color: #fafafa; line-height: 1.2; margin-bottom: 20px;
+}
+.about-text p { margin-bottom: 16px; }
+
+.model-cards { display: flex; flex-direction: column; gap: 16px; }
+.model-card {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 12px;
+  padding: 24px;
+  display: flex; gap: 16px; align-items: flex-start;
+  transition: border-color 0.3s;
+}
+.model-card:hover { border-color: rgba(139,92,246,0.15); }
+.model-card-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 24px; font-weight: 600; line-height: 1;
+}
+.model-card:nth-child(1) .model-card-num { color: #8b5cf6; }
+.model-card:nth-child(2) .model-card-num { color: #06b6d4; }
+.model-card:nth-child(3) .model-card-num { color: #10b981; }
+.model-card h4 {
+  font-size: 16px; font-weight: 600; color: #e4e4e7; margin-bottom: 4px;
+}
+.model-card p { font-size: 13px; color: #71717a; line-height: 1.6; }
+
+/* ═══════════════════════════════════════ */
+/* BLOG                                    */
+/* ═══════════════════════════════════════ */
+#blog { border-top: 1px solid rgba(255,255,255,0.03); }
+
+.blog-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+}
+.blog-card {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 12px;
+  padding: 32px;
+  display: flex; flex-direction: column;
+  transition: border-color 0.3s, transform 0.3s;
+}
+.blog-card:hover {
+  border-color: rgba(139,92,246,0.2);
+  transform: translateY(-2px);
+}
+.blog-card-meta {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; color: #52525b; margin-bottom: 12px;
+}
+.blog-card h3 {
+  font-size: 18px; font-weight: 600; letter-spacing: -0.2px;
+  color: #e4e4e7; margin-bottom: 10px; line-height: 1.4;
+}
+.blog-card p {
+  font-size: 13px; color: #52525b; line-height: 1.6;
+  flex: 1;
+}
+.blog-card-tag {
+  margin-top: 16px;
+  display: flex; gap: 8px;
+}
+.blog-card:first-child {
+  grid-column: 1 / -1;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 32px;
+  align-items: center;
+}
+.blog-card:first-child .blog-card-content { display: flex; flex-direction: column; }
+.blog-card:first-child .blog-card-visual {
+  background: rgba(139,92,246,0.03);
+  border: 1px solid rgba(139,92,246,0.08);
+  border-radius: 8px;
+  height: 200px;
+  display: flex; align-items: center; justify-content: center;
+}
+
+/* ═══════════════════════════════════════ */
+/* FOOTER                                  */
+/* ═══════════════════════════════════════ */
+footer {
+  padding: 48px 0;
+  border-top: 1px solid rgba(255,255,255,0.04);
+  position: relative;
+}
+footer::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, #8b5cf6, #06b6d4, transparent);
+  opacity: 0.12;
+}
+.footer-inner {
+  display: flex; justify-content: space-between; align-items: center;
+}
+.footer-left { display: flex; align-items: center; gap: 12px; }
+.footer-left span { font-size: 13px; color: #3f3f46; }
+.footer-right {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; color: #3f3f46;
+}
+
+/* ═══════════════════════════════════════ */
+/* RESPONSIVE                              */
+/* ═══════════════════════════════════════ */
+@media (max-width: 768px) {
+  .container { padding: 0 24px; }
+  .hero h1 { font-size: 36px; letter-spacing: -1px; }
+  .hero p { font-size: 16px; }
+  .about-grid { grid-template-columns: 1fr; }
+  .blog-grid { grid-template-columns: 1fr; }
+  .blog-card:first-child { grid-template-columns: 1fr; }
+  .blog-card:first-child .blog-card-visual { display: none; }
+  .nav-links { gap: 20px; }
+  .nav-links a { font-size: 12px; }
+  section { padding: 64px 0; }
+  .section-divider h2 { font-size: 28px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- NAV                                     -->
+<!-- ═══════════════════════════════════════ -->
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <svg width="28" height="28" viewBox="0 0 64 64" fill="none">
+        <path d="M6 50L18 40" stroke="#3f3f46" stroke-width="3" stroke-linecap="round"/>
+        <path d="M52 18L60 12" stroke="#3f3f46" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="18" cy="40" r="4" fill="#8b5cf6"/>
+        <path d="M18 40L14 26L36 28" stroke="#8b5cf6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <circle cx="36" cy="28" r="4" fill="#8b5cf6"/>
+        <path d="M36 28L28 48L44 56L56 40L52 18" stroke="#06b6d4" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <circle cx="44" cy="56" r="4" fill="#06b6d4"/>
+        <circle cx="52" cy="18" r="3.5" fill="#06b6d4"/>
+      </svg>
+      <span>sidequest<span class="accent">.ventures</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="#portfolio">Portfolio</a>
+      <a href="#about">About</a>
+      <a href="#blog">Blog</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- HERO                                    -->
+<!-- ═══════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-orb hero-orb-1"></div>
+  <div class="hero-orb hero-orb-2"></div>
+
+  <!-- Background path motif -->
+  <div class="bg-paths">
+    <svg viewBox="0 0 1200 800" fill="none" preserveAspectRatio="xMidYMid slice">
+      <path d="M-40 750L200 580" stroke="#3f3f46" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="8 8" opacity="0.06"/>
+      <path d="M200 580L600 350" stroke="#3f3f46" stroke-width="1" stroke-linecap="round" stroke-dasharray="6 6" opacity="0.04"/>
+      <path d="M600 350L1000 150" stroke="#3f3f46" stroke-width="1" stroke-linecap="round" stroke-dasharray="6 6" opacity="0.04"/>
+      <path d="M1000 150L1240 30" stroke="#3f3f46" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="8 8" opacity="0.06"/>
+      <circle cx="200" cy="580" r="5" fill="#8b5cf6" opacity="0.06"/>
+      <circle cx="600" cy="350" r="7" fill="#06b6d4" opacity="0.04"/>
+      <circle cx="1000" cy="150" r="5" fill="#10b981" opacity="0.05"/>
+      <!-- Purple sidequest arc -->
+      <path d="M200 580L100 420L350 380L600 350" stroke="#8b5cf6" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.04"/>
+      <circle cx="100" cy="420" r="3" fill="#8b5cf6" opacity="0.04"/>
+      <circle cx="350" cy="380" r="4" fill="#8b5cf6" opacity="0.03"/>
+      <!-- Cyan sidequest arc -->
+      <path d="M600 350L500 550L750 620L950 480L1000 150" stroke="#06b6d4" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.03"/>
+      <circle cx="500" cy="550" r="3" fill="#06b6d4" opacity="0.03"/>
+      <circle cx="750" cy="620" r="5" fill="#06b6d4" opacity="0.03"/>
+      <circle cx="950" cy="480" r="3" fill="#06b6d4" opacity="0.02"/>
+    </svg>
+  </div>
+
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-tag">// dark software factory</div>
+      <h1>We build AI&#8209;native software companies from scratch<span class="dot">.</span></h1>
+      <p>A venture studio that finds the signal in the noise and builds what should exist. Not accelerating startups — creating them.</p>
+      <a href="#portfolio" class="hero-cta">
+        See the portfolio
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PORTFOLIO                               -->
+<!-- ═══════════════════════════════════════ -->
+<section id="portfolio">
+  <div class="container">
+    <div class="section-tag">// portfolio</div>
+    <div class="section-divider">
+      <h2>What we're building</h2>
+      <svg width="120" height="12" viewBox="0 0 120 12" fill="none">
+        <circle cx="4" cy="6" r="3" fill="#8b5cf6" opacity="0.4"/>
+        <path d="M7 6L35 6" stroke="#8b5cf6" stroke-width="1.5" stroke-linecap="round" opacity="0.2"/>
+        <circle cx="38" cy="6" r="2" fill="#06b6d4" opacity="0.3"/>
+        <path d="M40 6L70 6" stroke="#06b6d4" stroke-width="1" stroke-linecap="round" stroke-dasharray="3 3" opacity="0.15"/>
+        <circle cx="73" cy="6" r="2.5" fill="#10b981" opacity="0.3"/>
+        <path d="M76 6L120 6" stroke="#3f3f46" stroke-width="0.5" stroke-linecap="round" opacity="0.15"/>
+      </svg>
+      <div class="section-divider-line"></div>
+    </div>
+
+    <div class="portfolio-grid">
+      <div class="portfolio-card">
+        <div class="portfolio-card-header">
+          <h3>Revision.sucks</h3>
+          <div class="portfolio-tags">
+            <span class="tag tag-cyan">active</span>
+            <span class="tag tag-purple">b2b saas</span>
+          </div>
+        </div>
+        <p>AI-powered document review that eliminates the revision cycle. Revision reads your document, understands your intent, and gives you one clean pass — not twelve. Currently in beta with enterprise clients who are tired of tracked changes.</p>
+      </div>
+
+      <div class="portfolio-connector">
+        <svg width="40" height="32" viewBox="0 0 40 32" fill="none">
+          <path d="M20 0L20 10L28 16L20 22L20 32" stroke="#3f3f46" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.15"/>
+          <circle cx="28" cy="16" r="2.5" fill="#06b6d4" opacity="0.15"/>
+        </svg>
+      </div>
+
+      <div class="portfolio-card">
+        <div class="portfolio-card-header">
+          <h3>Product Lobby</h3>
+          <div class="portfolio-tags">
+            <span class="tag tag-cyan">active</span>
+            <span class="tag tag-emerald">marketplace</span>
+          </div>
+        </div>
+        <p>Connecting product teams with real user feedback at the point of decision. Product Lobby puts the voice of the customer where it belongs — inside the tools teams actually use, not buried in a research repository nobody opens.</p>
+      </div>
+
+      <div class="portfolio-connector">
+        <svg width="40" height="32" viewBox="0 0 40 32" fill="none">
+          <path d="M20 0L20 10L12 16L20 22L20 32" stroke="#3f3f46" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.15"/>
+          <circle cx="12" cy="16" r="2.5" fill="#10b981" opacity="0.15"/>
+        </svg>
+      </div>
+
+      <div class="portfolio-card">
+        <div class="portfolio-card-header">
+          <h3>Pipeline #3</h3>
+          <div class="portfolio-tags">
+            <span class="tag tag-purple">pipeline</span>
+            <span class="tag tag-purple">research</span>
+          </div>
+        </div>
+        <p>An AI-native approach to analyst relations tooling. Currently in the research phase — mapping the landscape, talking to practitioners, and figuring out whether the economics work. Not every sidequest makes it. That's the point.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- ABOUT                                   -->
+<!-- ═══════════════════════════════════════ -->
+<section id="about">
+  <div class="container">
+    <div class="section-tag">// the model</div>
+    <div class="section-divider">
+      <h2>How we work</h2>
+      <svg width="120" height="12" viewBox="0 0 120 12" fill="none">
+        <circle cx="4" cy="6" r="3" fill="#8b5cf6" opacity="0.4"/>
+        <path d="M7 6L35 6" stroke="#8b5cf6" stroke-width="1.5" stroke-linecap="round" opacity="0.2"/>
+        <circle cx="38" cy="6" r="2" fill="#06b6d4" opacity="0.3"/>
+        <path d="M40 6L70 6" stroke="#06b6d4" stroke-width="1" stroke-linecap="round" stroke-dasharray="3 3" opacity="0.15"/>
+        <circle cx="73" cy="6" r="2.5" fill="#10b981" opacity="0.3"/>
+        <path d="M76 6L120 6" stroke="#3f3f46" stroke-width="0.5" stroke-linecap="round" opacity="0.15"/>
+      </svg>
+      <div class="section-divider-line"></div>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-text">
+        <h3>AI compressed the cost of building software by 10x. We're using that.</h3>
+        <p>The venture studio model — building multiple companies from a shared team and thesis — is now dramatically more capital-efficient. One senior team can ship what used to require dozens of engineers.</p>
+        <p>We don't invest in founders. We don't run a programme. We identify high-signal opportunities where AI changes the economics, and we build the companies ourselves. From zero to product, revenue, and operating independence.</p>
+        <p style="color: #52525b;">Some sidequests are quick experiments. Others become the whole story. We won't know which until we build them.</p>
+      </div>
+
+      <div class="model-cards">
+        <div class="model-card">
+          <div class="model-card-num">01</div>
+          <div>
+            <h4>Identify</h4>
+            <p>Find high-signal opportunities where AI changes the economics of an industry or workflow. Research, validate, discard the bad ones fast.</p>
+          </div>
+        </div>
+        <div class="model-card">
+          <div class="model-card-num">02</div>
+          <div>
+            <h4>Build</h4>
+            <p>Design, develop, and launch from inside the studio. One team, shared infrastructure, fast iteration. Ship the first version in weeks, not months.</p>
+          </div>
+        </div>
+        <div class="model-card">
+          <div class="model-card-num">03</div>
+          <div>
+            <h4>Scale</h4>
+            <p>Install leadership, raise capital, and spin out into an independent operating company. The studio retains equity and stays close.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- BLOG                                    -->
+<!-- ═══════════════════════════════════════ -->
+<section id="blog">
+  <div class="container">
+    <div class="section-tag">// thinking</div>
+    <div class="section-divider">
+      <h2>From the studio</h2>
+      <svg width="120" height="12" viewBox="0 0 120 12" fill="none">
+        <circle cx="4" cy="6" r="3" fill="#8b5cf6" opacity="0.4"/>
+        <path d="M7 6L35 6" stroke="#8b5cf6" stroke-width="1.5" stroke-linecap="round" opacity="0.2"/>
+        <circle cx="38" cy="6" r="2" fill="#06b6d4" opacity="0.3"/>
+        <path d="M40 6L70 6" stroke="#06b6d4" stroke-width="1" stroke-linecap="round" stroke-dasharray="3 3" opacity="0.15"/>
+        <circle cx="73" cy="6" r="2.5" fill="#10b981" opacity="0.3"/>
+        <path d="M76 6L120 6" stroke="#3f3f46" stroke-width="0.5" stroke-linecap="round" opacity="0.15"/>
+      </svg>
+      <div class="section-divider-line"></div>
+    </div>
+
+    <div class="blog-grid">
+      <!-- Featured post -->
+      <a href="/blog/why-we-dont-do-demo-days.html" class="blog-card" style="text-decoration:none;">
+        <div class="blog-card-content">
+          <div class="blog-card-meta">2026.02.18 · 6 min read</div>
+          <h3>Why we don't do demo days</h3>
+          <p>The venture studio model isn't about showcasing potential. It's about proving viability before anyone's watching. We build in the dark until it works — then we show up with revenue, not slides.</p>
+          <div class="blog-card-tag">
+            <span class="tag tag-purple">venture studios</span>
+            <span class="tag tag-cyan">strategy</span>
+          </div>
+        </div>
+        <div class="blog-card-visual">
+          <svg width="120" height="120" viewBox="0 0 64 64" fill="none" opacity="0.4">
+            <circle cx="4" cy="48" r="3.5" fill="#3f3f46"/>
+            <path d="M4 48L18 38" stroke="#3f3f46" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M18 38L34 28" stroke="#3f3f46" stroke-width="2" stroke-linecap="round" stroke-dasharray="3 3"/>
+            <path d="M34 28L50 18" stroke="#3f3f46" stroke-width="2" stroke-linecap="round" stroke-dasharray="3 3"/>
+            <path d="M50 18L60 10" stroke="#3f3f46" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="60" cy="10" r="3.5" fill="#3f3f46"/>
+            <circle cx="18" cy="38" r="3" fill="#8b5cf6"/>
+            <path d="M18 38L14 26L34 28" stroke="#8b5cf6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <circle cx="34" cy="28" r="3" fill="#8b5cf6"/>
+            <path d="M34 28L28 48L44 56L56 40L50 18" stroke="#06b6d4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <circle cx="44" cy="56" r="3.5" fill="#06b6d4"/>
+            <circle cx="50" cy="18" r="3" fill="#06b6d4"/>
+          </svg>
+        </div>
+      </a>
+
+      <!-- Post 2 -->
+      <a href="/blog/ai-ate-the-revision-cycle.html" class="blog-card" style="text-decoration:none;">
+        <div class="blog-card-meta">2026.02.10 · 4 min read</div>
+        <h3>AI ate the revision cycle</h3>
+        <p>The document review workflow hasn't changed in 20 years. Track changes, comment threads, version hell. What if AI could give you one clean pass instead of twelve?</p>
+        <div class="blog-card-tag">
+          <span class="tag tag-cyan">ai in business</span>
+        </div>
+      </a>
+
+      <!-- Post 3 -->
+      <a href="/blog/analyst-relations-is-broken.html" class="blog-card" style="text-decoration:none;">
+        <div class="blog-card-meta">2026.01.28 · 5 min read</div>
+        <h3>Analyst relations is broken — and AI can fix it</h3>
+        <p>The analyst relations industry runs on PDFs, calendar invites, and institutional memory. What happens when AI can map the entire landscape in real time?</p>
+        <div class="blog-card-tag">
+          <span class="tag tag-emerald">analyst relations</span>
+        </div>
+      </a>
+
+      <!-- Post 4 -->
+      <a href="/blog/the-10x-collapse.html" class="blog-card" style="text-decoration:none;">
+        <div class="blog-card-meta">2026.01.15 · 7 min read</div>
+        <h3>The 10x collapse: what happens when building software costs nothing</h3>
+        <p>When the cost of building drops by an order of magnitude, the bottleneck shifts from engineering to taste. The winners will be the teams who know what to build, not how.</p>
+        <div class="blog-card-tag">
+          <span class="tag tag-purple">future of work</span>
+        </div>
+      </a>
+
+      <!-- Post 5 -->
+      <a href="/blog/marketing-without-marketers.html" class="blog-card" style="text-decoration:none;">
+        <div class="blog-card-meta">2026.01.04 · 5 min read</div>
+        <h3>Marketing without marketers: the AI-native GTM playbook</h3>
+        <p>When a two-person studio can launch a product with AI-generated content, automated outreach, and real-time analytics, what does marketing even mean?</p>
+        <div class="blog-card-tag">
+          <span class="tag tag-cyan">ai in marketing</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- FOOTER                                  -->
+<!-- ═══════════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-left">
+        <svg width="20" height="20" viewBox="0 0 64 64" fill="none">
+          <path d="M8 50L20 40" stroke="#3f3f46" stroke-width="4" stroke-linecap="round"/>
+          <path d="M52 20L58 14" stroke="#3f3f46" stroke-width="4" stroke-linecap="round"/>
+          <circle cx="20" cy="40" r="5" fill="#8b5cf6"/>
+          <path d="M20 40L16 26L36 28" stroke="#8b5cf6" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <circle cx="36" cy="28" r="5" fill="#8b5cf6"/>
+          <path d="M36 28L30 48L46 54L56 40L52 20" stroke="#06b6d4" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <circle cx="46" cy="54" r="5" fill="#06b6d4"/>
+        </svg>
+        <span>© 2026 Sidequest Ventures Ltd · London, UK</span>
+      </div>
+      <div class="footer-right">
+        sidequest.ventures
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
