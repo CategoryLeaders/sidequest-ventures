@@ -57,7 +57,7 @@ body { font-family: 'Open Sans', sans-serif; font-weight: 400; color: var(--fv-b
 }
 .sq-nav-brand { display: flex; align-items: center; gap: 10px; }
 .sq-nav-brand svg { width: 32px; height: 32px; }
-.sq-nav-brand span { color: var(--sq-text); font-weight: 600; font-size: 15px; letter-spacing: -0.5px; }
+.sq-nav-brand span, .sq-nav-text { color: var(--sq-text); font-weight: 600; font-size: 15px; letter-spacing: -0.5px; }
 .sq-nav-brand .dot { color: var(--sq-accent); }
 
 /* Progress bar */
@@ -230,6 +230,36 @@ body { font-family: 'Open Sans', sans-serif; font-weight: 400; color: var(--fv-b
 .tactic-card.sel-later { border-color: #bbc; }
 .tactic-card.sel-no { border-color: var(--neg-border); opacity: 0.6; }
 
+/* Main Launch Activities tiles */
+.section-heading {
+  font-family: 'Poppins', sans-serif; font-size: 14px; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.8px; color: var(--fv-violet);
+  margin-bottom: 14px; margin-top: 28px;
+}
+.section-heading:first-of-type { margin-top: 0; }
+.main-launch-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 28px;
+}
+.main-launch-tile {
+  background: linear-gradient(135deg, #fff 60%, #f8f5ff 100%);
+  border: 2px solid var(--fv-violet); border-radius: 14px; padding: 24px 20px;
+  text-align: center; cursor: pointer; transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(166,159,202,0.12);
+}
+.main-launch-tile:hover { transform: translateY(-3px); box-shadow: 0 6px 16px rgba(166,159,202,0.2); }
+.main-launch-tile .tile-icon { font-size: 2rem; margin-bottom: 8px; }
+.main-launch-tile .tile-label { font-family: 'Poppins', sans-serif; font-size: 15px; font-weight: 600; color: var(--fv-black); margin-bottom: 4px; }
+.main-launch-tile .tile-sub { font-size: 12px; color: #888; font-weight: 300; }
+
+/* "Noted for next iteration" style on tactic cards */
+.tactic-card.status-changed {
+  border-color: var(--fv-gold) !important; background: #fffbf0 !important; opacity: 1 !important;
+}
+.tactic-card .noted-label {
+  display: none; font-size: 11px; color: var(--fv-gold); font-weight: 600;
+  font-family: 'Poppins', sans-serif; margin-top: 8px;
+}
+.tactic-card.status-changed .noted-label { display: block; }
 
 /* ═══════════════════════════════════════════
    SUB-TAB NAVIGATION (Platform pages)
@@ -648,6 +678,27 @@ body { font-family: 'Open Sans', sans-serif; font-weight: 400; color: var(--fv-b
   <h1 style="font-family:'Calistoga',serif;color:var(--fv-violet);font-size:1.8rem;margin-bottom:6px;">FenViolet Launch Plan</h1>
   <p style="color:var(--fv-black);opacity:0.55;margin-bottom:24px;font-size:0.95rem;">Review launch tactics, then step through each platform's content.</p>
 
+  <div class="section-heading">Main Launch Activities</div>
+  <div class="main-launch-grid">
+    <div class="main-launch-tile" onclick="navigateTo(2)">
+      <div class="tile-icon">📘</div>
+      <div class="tile-label">Facebook Post</div>
+      <div class="tile-sub">Personal profile announcement</div>
+    </div>
+    <div class="main-launch-tile" onclick="navigateTo(3)">
+      <div class="tile-icon">💬</div>
+      <div class="tile-label">WhatsApp Campaign</div>
+      <div class="tile-sub">Direct message to contacts</div>
+    </div>
+    <div class="main-launch-tile" onclick="navigateTo(4)">
+      <div class="tile-icon">📧</div>
+      <div class="tile-label">Email Announcement</div>
+      <div class="tile-sub">Launch email to network</div>
+    </div>
+  </div>
+
+  <div class="section-heading">Additional Launch Activities</div>
+
   <div class="tactics-header">
     <div class="tactics-counts" id="tacticsCounts">
       <span class="count-badge" data-status="yes">Active: <b>3</b></span>
@@ -676,6 +727,7 @@ body { font-family: 'Open Sans', sans-serif; font-weight: 400; color: var(--fv-b
         <button class="vote-btn vote-later" onclick="voteTactic(this,'later')">⏸️ Later</button>
         <button class="vote-btn vote-no" onclick="voteTactic(this,'no')">❌ No</button>
       </div>
+      <div class="noted-label">📝 Noted for next iteration</div>
     </div>
 
     <!-- Tactic 2: Instagram Reels — Active -->
@@ -689,6 +741,7 @@ body { font-family: 'Open Sans', sans-serif; font-weight: 400; color: var(--fv-b
         <button class="vote-btn vote-later" onclick="voteTactic(this,'later')">⏸️ Later</button>
         <button class="vote-btn vote-no" onclick="voteTactic(this,'no')">❌ No</button>
       </div>
+      <div class="noted-label">📝 Noted for next iteration</div>
     </div>
 
     <!-- Tactic 3: Free Website Audit — Active -->
@@ -702,6 +755,7 @@ body { font-family: 'Open Sans', sans-serif; font-weight: 400; color: var(--fv-b
         <button class="vote-btn vote-later" onclick="voteTactic(this,'later')">⏸️ Later</button>
         <button class="vote-btn vote-no" onclick="voteTactic(this,'no')">❌ No</button>
       </div>
+      <div class="noted-label">📝 Noted for next iteration</div>
     </div>
 
     <!-- Tactic 4: Collaborate with Creatives — Considering -->
@@ -715,6 +769,7 @@ body { font-family: 'Open Sans', sans-serif; font-weight: 400; color: var(--fv-b
         <button class="vote-btn vote-later" onclick="voteTactic(this,'later')">⏸️ Later</button>
         <button class="vote-btn vote-no" onclick="voteTactic(this,'no')">❌ No</button>
       </div>
+      <div class="noted-label">📝 Noted for next iteration</div>
     </div>
 
     <!-- Tactic 5: Facebook Business Page — Parked -->
@@ -728,6 +783,7 @@ body { font-family: 'Open Sans', sans-serif; font-weight: 400; color: var(--fv-b
         <button class="vote-btn vote-later active" onclick="voteTactic(this,'later')">⏸️ Later</button>
         <button class="vote-btn vote-no" onclick="voteTactic(this,'no')">❌ No</button>
       </div>
+      <div class="noted-label">📝 Noted for next iteration</div>
     </div>
 
     <!-- Tactic 6: Meta Ads — Parked -->
@@ -741,6 +797,7 @@ body { font-family: 'Open Sans', sans-serif; font-weight: 400; color: var(--fv-b
         <button class="vote-btn vote-later active" onclick="voteTactic(this,'later')">⏸️ Later</button>
         <button class="vote-btn vote-no" onclick="voteTactic(this,'no')">❌ No</button>
       </div>
+      <div class="noted-label">📝 Noted for next iteration</div>
     </div>
 
     <!-- Tactic 7: Referral Thank-You — Rejected -->
@@ -755,6 +812,7 @@ body { font-family: 'Open Sans', sans-serif; font-weight: 400; color: var(--fv-b
         <button class="vote-btn vote-later" onclick="voteTactic(this,'later')">⏸️ Later</button>
         <button class="vote-btn vote-no active" onclick="voteTactic(this,'no')">❌ No</button>
       </div>
+      <div class="noted-label">📝 Noted for next iteration</div>
     </div>
 
     <!-- Tactic 8: Google Business Profile — Rejected -->
@@ -769,6 +827,7 @@ body { font-family: 'Open Sans', sans-serif; font-weight: 400; color: var(--fv-b
         <button class="vote-btn vote-later" onclick="voteTactic(this,'later')">⏸️ Later</button>
         <button class="vote-btn vote-no active" onclick="voteTactic(this,'no')">❌ No</button>
       </div>
+      <div class="noted-label">📝 Noted for next iteration</div>
     </div>
   </div><!-- /tactics-grid -->
 </section>
@@ -807,27 +866,56 @@ body { font-family: 'Open Sans', sans-serif; font-weight: 400; color: var(--fv-b
       <div class="msg-tile" data-platform="facebook" data-id="FB1" onclick="selectMessage('facebook','FB1',this)">
         <div style="font-weight:600;font-size:0.85rem;margin-bottom:4px;">The Vulnerable Announcement</div>
         <div style="font-size:0.78rem;color:var(--fv-black);opacity:0.6;margin-bottom:6px;">★ Baseline</div>
-        <div style="font-size:0.8rem;line-height:1.4;color:var(--fv-black);opacity:0.75;">So I've done a thing. I've been quietly working on something for a while now…</div>
+        <div style="font-size:0.8rem;line-height:1.4;color:var(--fv-black);opacity:0.75;">So I've done a thing. I've been quietly working on something for a while now and I think it's time to actually tell people about it. I've started a web design studio called FenViolet. I build websites for small business owners — the kind of people who are brilliant at what they do but whose website just isn't keeping up. I know how it feels to pour everything into your business and then look at your website and think… this doesn't represent me at all. That's what I want to fix. If you know someone who could do with some help getting their online presence to match how good they actually are, I'd love it if you sent them my way 💜 fenviolet.co.uk ✨</div>
       </div>
       <!-- FB2: The Vibe Check -->
       <div class="msg-tile" data-platform="facebook" data-id="FB2" onclick="selectMessage('facebook','FB2',this)">
         <div style="font-weight:600;font-size:0.85rem;margin-bottom:4px;">The Vibe Check</div>
         <div style="font-size:0.78rem;color:var(--fv-black);opacity:0.6;margin-bottom:6px;">Draft</div>
-        <div style="font-size:0.8rem;line-height:1.4;color:var(--fv-black);opacity:0.75;">Okay so this is a bit nerve-wracking but here goes…</div>
+        <div style="font-size:0.8rem;line-height:1.4;color:var(--fv-black);opacity:0.75;">Okay so this is a bit nerve-wracking but here goes. I've launched my own web design studio. It's called FenViolet and I build websites for small business owners who deserve a website as good as they are. If you're on my friend list, we probably vibe with the same people. So if you know someone who's been putting off sorting their website out — or whose current one doesn't reflect how good they actually are — I'd love an introduction. Have a look if you're curious 💚 fenviolet.co.uk</div>
       </div>
       <!-- FB3: The Helping Hand -->
       <div class="msg-tile" data-platform="facebook" data-id="FB3" onclick="selectMessage('facebook','FB3',this)">
         <div style="font-weight:600;font-size:0.85rem;margin-bottom:4px;">The Helping Hand</div>
         <div style="font-size:0.78rem;color:var(--fv-black);opacity:0.6;margin-bottom:6px;">Draft</div>
-        <div style="font-size:0.8rem;line-height:1.4;color:var(--fv-black);opacity:0.75;">I've been sitting on this news for a bit because telling people felt scarier…</div>
+        <div style="font-size:0.8rem;line-height:1.4;color:var(--fv-black);opacity:0.75;">I've been sitting on this news for a bit because telling people felt scarier than actually doing it, but — I've started my own web design studio called FenViolet 💜 I design websites for small business owners — the kind of people who are amazing at what they do but need some help getting their online presence to match. I know a lot of you run your own things or know people who do. If someone comes to mind who might want a website that actually does them justice, I'd really appreciate you pointing them my way. fenviolet.co.uk ✨</div>
       </div>
-      <!-- Placeholders 4-9 -->
-      <div class="msg-tile placeholder"><div style="font-weight:600;font-size:0.85rem;opacity:0.4;">Variant 4</div><div style="font-size:0.78rem;opacity:0.3;margin-top:8px;">Coming in next iteration</div></div>
-      <div class="msg-tile placeholder"><div style="font-weight:600;font-size:0.85rem;opacity:0.4;">Variant 5</div><div style="font-size:0.78rem;opacity:0.3;margin-top:8px;">Coming in next iteration</div></div>
-      <div class="msg-tile placeholder"><div style="font-weight:600;font-size:0.85rem;opacity:0.4;">Variant 6</div><div style="font-size:0.78rem;opacity:0.3;margin-top:8px;">Coming in next iteration</div></div>
-      <div class="msg-tile placeholder"><div style="font-weight:600;font-size:0.85rem;opacity:0.4;">Variant 7</div><div style="font-size:0.78rem;opacity:0.3;margin-top:8px;">Coming in next iteration</div></div>
-      <div class="msg-tile placeholder"><div style="font-weight:600;font-size:0.85rem;opacity:0.4;">Variant 8</div><div style="font-size:0.78rem;opacity:0.3;margin-top:8px;">Coming in next iteration</div></div>
-      <div class="msg-tile placeholder"><div style="font-weight:600;font-size:0.85rem;opacity:0.4;">Variant 9</div><div style="font-size:0.78rem;opacity:0.3;margin-top:8px;">Coming in next iteration</div></div>
+      <!-- FB4: The Proud Moment -->
+      <div class="msg-tile" data-platform="facebook" data-id="FB4" onclick="selectMessage('facebook','FB4',this)">
+        <div style="font-weight:600;font-size:0.85rem;margin-bottom:4px;">The Proud Moment</div>
+        <div style="font-size:0.78rem;color:var(--fv-black);opacity:0.6;margin-bottom:6px;">Draft</div>
+        <div style="font-size:0.8rem;line-height:1.4;color:var(--fv-black);opacity:0.75;">I don't really do the whole "look at me" thing, but I'm genuinely proud of this one. I've built a web design studio called FenViolet. It's for small business owners who are incredible at what they do — but whose website doesn't show it. I've been there. I know what it's like to look at your online presence and think "this isn't me." So now I help people fix that. If that sounds like someone you know — or even you — have a look 💜 fenviolet.co.uk</div>
+      </div>
+      <!-- FB5: The Before & After -->
+      <div class="msg-tile" data-platform="facebook" data-id="FB5" onclick="selectMessage('facebook','FB5',this)">
+        <div style="font-weight:600;font-size:0.85rem;margin-bottom:4px;">The Before &amp; After</div>
+        <div style="font-size:0.78rem;color:var(--fv-black);opacity:0.6;margin-bottom:6px;">Draft</div>
+        <div style="font-size:0.8rem;line-height:1.4;color:var(--fv-black);opacity:0.75;">You know when you meet someone and they're SO good at what they do — and then you look at their website and it just… doesn't match? That gap is what I fix. I've launched FenViolet, a web design studio for small business owners who've outgrown their website (or never had a proper one to begin with). If someone popped into your head just then — I'd love it if you tagged them or sent them my way. fenviolet.co.uk 💜</div>
+      </div>
+      <!-- FB6: The Personal Story -->
+      <div class="msg-tile" data-platform="facebook" data-id="FB6" onclick="selectMessage('facebook','FB6',this)">
+        <div style="font-weight:600;font-size:0.85rem;margin-bottom:4px;">The Personal Story</div>
+        <div style="font-size:0.78rem;color:var(--fv-black);opacity:0.6;margin-bottom:6px;">Draft</div>
+        <div style="font-size:0.8rem;line-height:1.4;color:var(--fv-black);opacity:0.75;">A few years ago I would never have imagined doing this. But here we are. I've launched my own web design studio — FenViolet — and honestly it still feels a bit surreal saying it out loud. I started because I kept meeting amazing small business owners who were being let down by their websites. They deserved better. So now I build websites that actually match how brilliant they are. If you know anyone who needs this — a friend, a colleague, someone whose business you love but whose website makes you wince — please send them to fenviolet.co.uk 💜</div>
+      </div>
+      <!-- FB7: The Confidence Builder -->
+      <div class="msg-tile" data-platform="facebook" data-id="FB7" onclick="selectMessage('facebook','FB7',this)">
+        <div style="font-weight:600;font-size:0.85rem;margin-bottom:4px;">The Confidence Builder</div>
+        <div style="font-size:0.78rem;color:var(--fv-black);opacity:0.6;margin-bottom:6px;">Draft</div>
+        <div style="font-size:0.8rem;line-height:1.4;color:var(--fv-black);opacity:0.75;">Can I tell you something? The number of small business owners I meet who say "I know my website's rubbish but I just don't know where to start" is wild. That's exactly why I started FenViolet. I build beautiful, simple websites for people who are too busy being great at their actual job to figure out web design. No jargon. No stress. Just a website that finally feels like you. If that sounds like someone you know, drop me a message or send them to fenviolet.co.uk 💚</div>
+      </div>
+      <!-- FB8: The Community Ask -->
+      <div class="msg-tile" data-platform="facebook" data-id="FB8" onclick="selectMessage('facebook','FB8',this)">
+        <div style="font-weight:600;font-size:0.85rem;margin-bottom:4px;">The Community Ask</div>
+        <div style="font-size:0.78rem;color:var(--fv-black);opacity:0.6;margin-bottom:6px;">Draft</div>
+        <div style="font-size:0.8rem;line-height:1.4;color:var(--fv-black);opacity:0.75;">Small ask from me today 💜 I've launched a web design studio called FenViolet and I'm trying to get the word out to the people who need it most — small business owners who are amazing at what they do but whose website doesn't do them justice. If you could share this post, or tag someone you think might need it, it would mean the absolute world to me. I'm not asking for much — just a share from the people who know me best. fenviolet.co.uk ✨ Thank you, honestly.</div>
+      </div>
+      <!-- FB9: The Future Vision -->
+      <div class="msg-tile" data-platform="facebook" data-id="FB9" onclick="selectMessage('facebook','FB9',this)">
+        <div style="font-weight:600;font-size:0.85rem;margin-bottom:4px;">The Future Vision</div>
+        <div style="font-size:0.78rem;color:var(--fv-black);opacity:0.6;margin-bottom:6px;">Draft</div>
+        <div style="font-size:0.8rem;line-height:1.4;color:var(--fv-black);opacity:0.75;">I keep thinking about where I want to be a year from now — and every version of that picture has FenViolet in it. I've started a web design studio for small business owners. The ones who light up when they talk about what they do but go quiet when you ask about their website. I want to change that. I want every small business I work with to feel as proud of their website as they are of their work. If you know someone who deserves that — please point them my way 💜 fenviolet.co.uk</div>
+      </div>
     </div><!-- /msg-grid -->
   </div><!-- /fb-select -->
 
@@ -891,6 +979,112 @@ fenviolet.co.uk ✨</div>
       </div>
       <div class="feedback-panel" id="feedback-FB3"></div>
       <button class="approve-btn" onclick="approveMessage('FB3',this)">Good to go ✓</button>
+    </div>
+
+    <!-- FB4 Full Mockup + Feedback -->
+    <div class="feedback-card" id="fbCard-FB4" style="display:none;">
+      <div class="fb-post">
+        <div class="fb-header"><div class="fb-avatar">H</div><div><div class="fb-name">Hannah</div><div class="fb-time">Just now · 🌍</div></div></div>
+        <div class="fb-text">I don't really do the whole "look at me" thing, but I'm genuinely proud of this one.
+
+I've built a web design studio called FenViolet. It's for small business owners who are incredible at what they do — but whose website doesn't show it.
+
+I've been there. I know what it's like to look at your online presence and think "this isn't me." So now I help people fix that.
+
+If that sounds like someone you know — or even you — have a look 💜
+fenviolet.co.uk</div>
+        <div class="fb-link"><strong>fenviolet.co.uk</strong> · Web design for small businesses</div>
+      </div>
+      <div class="feedback-panel" id="feedback-FB4"></div>
+      <button class="approve-btn" onclick="approveMessage('FB4',this)">Good to go ✓</button>
+    </div>
+
+    <!-- FB5 Full Mockup + Feedback -->
+    <div class="feedback-card" id="fbCard-FB5" style="display:none;">
+      <div class="fb-post">
+        <div class="fb-header"><div class="fb-avatar">H</div><div><div class="fb-name">Hannah</div><div class="fb-time">Just now · 🌍</div></div></div>
+        <div class="fb-text">You know when you meet someone and they're SO good at what they do — and then you look at their website and it just… doesn't match?
+
+That gap is what I fix.
+
+I've launched FenViolet, a web design studio for small business owners who've outgrown their website (or never had a proper one to begin with).
+
+If someone popped into your head just then — I'd love it if you tagged them or sent them my way.
+fenviolet.co.uk 💜</div>
+        <div class="fb-link"><strong>fenviolet.co.uk</strong> · Web design for small businesses</div>
+      </div>
+      <div class="feedback-panel" id="feedback-FB5"></div>
+      <button class="approve-btn" onclick="approveMessage('FB5',this)">Good to go ✓</button>
+    </div>
+
+    <!-- FB6 Full Mockup + Feedback -->
+    <div class="feedback-card" id="fbCard-FB6" style="display:none;">
+      <div class="fb-post">
+        <div class="fb-header"><div class="fb-avatar">H</div><div><div class="fb-name">Hannah</div><div class="fb-time">Just now · 🌍</div></div></div>
+        <div class="fb-text">A few years ago I would never have imagined doing this. But here we are.
+
+I've launched my own web design studio — FenViolet — and honestly it still feels a bit surreal saying it out loud.
+
+I started because I kept meeting amazing small business owners who were being let down by their websites. They deserved better. So now I build websites that actually match how brilliant they are.
+
+If you know anyone who needs this — a friend, a colleague, someone whose business you love but whose website makes you wince — please send them to fenviolet.co.uk 💜</div>
+        <div class="fb-link"><strong>fenviolet.co.uk</strong> · Web design for small businesses</div>
+      </div>
+      <div class="feedback-panel" id="feedback-FB6"></div>
+      <button class="approve-btn" onclick="approveMessage('FB6',this)">Good to go ✓</button>
+    </div>
+
+    <!-- FB7 Full Mockup + Feedback -->
+    <div class="feedback-card" id="fbCard-FB7" style="display:none;">
+      <div class="fb-post">
+        <div class="fb-header"><div class="fb-avatar">H</div><div><div class="fb-name">Hannah</div><div class="fb-time">Just now · 🌍</div></div></div>
+        <div class="fb-text">Can I tell you something? The number of small business owners I meet who say "I know my website's rubbish but I just don't know where to start" is wild.
+
+That's exactly why I started FenViolet.
+
+I build beautiful, simple websites for people who are too busy being great at their actual job to figure out web design. No jargon. No stress. Just a website that finally feels like you.
+
+If that sounds like someone you know, drop me a message or send them to fenviolet.co.uk 💚</div>
+        <div class="fb-link"><strong>fenviolet.co.uk</strong> · Web design for small businesses</div>
+      </div>
+      <div class="feedback-panel" id="feedback-FB7"></div>
+      <button class="approve-btn" onclick="approveMessage('FB7',this)">Good to go ✓</button>
+    </div>
+
+    <!-- FB8 Full Mockup + Feedback -->
+    <div class="feedback-card" id="fbCard-FB8" style="display:none;">
+      <div class="fb-post">
+        <div class="fb-header"><div class="fb-avatar">H</div><div><div class="fb-name">Hannah</div><div class="fb-time">Just now · 🌍</div></div></div>
+        <div class="fb-text">Small ask from me today 💜
+
+I've launched a web design studio called FenViolet and I'm trying to get the word out to the people who need it most — small business owners who are amazing at what they do but whose website doesn't do them justice.
+
+If you could share this post, or tag someone you think might need it, it would mean the absolute world to me. I'm not asking for much — just a share from the people who know me best.
+
+fenviolet.co.uk ✨
+Thank you, honestly.</div>
+        <div class="fb-link"><strong>fenviolet.co.uk</strong> · Web design for small businesses</div>
+      </div>
+      <div class="feedback-panel" id="feedback-FB8"></div>
+      <button class="approve-btn" onclick="approveMessage('FB8',this)">Good to go ✓</button>
+    </div>
+
+    <!-- FB9 Full Mockup + Feedback -->
+    <div class="feedback-card" id="fbCard-FB9" style="display:none;">
+      <div class="fb-post">
+        <div class="fb-header"><div class="fb-avatar">H</div><div><div class="fb-name">Hannah</div><div class="fb-time">Just now · 🌍</div></div></div>
+        <div class="fb-text">I keep thinking about where I want to be a year from now — and every version of that picture has FenViolet in it.
+
+I've started a web design studio for small business owners. The ones who light up when they talk about what they do but go quiet when you ask about their website.
+
+I want to change that. I want every small business I work with to feel as proud of their website as they are of their work.
+
+If you know someone who deserves that — please point them my way 💜
+fenviolet.co.uk</div>
+        <div class="fb-link"><strong>fenviolet.co.uk</strong> · Web design for small businesses</div>
+      </div>
+      <div class="feedback-panel" id="feedback-FB9"></div>
+      <button class="approve-btn" onclick="approveMessage('FB9',this)">Good to go ✓</button>
     </div>
   </div><!-- /fb-feedback -->
 
@@ -1290,7 +1484,7 @@ function showFeedbackCards(platform) {
   const prefixMap = { facebook: 'fb', whatsapp: 'wa', email: 'em' };
   const pre = prefixMap[platform];
   const sel = STATE.selections[platform];
-  const ids = platform === 'facebook' ? ['FB1','FB2','FB3'] : platform === 'whatsapp' ? ['WA1','WA2','WA3'] : ['EM1','EM2','EM3'];
+  const ids = platform === 'facebook' ? ['FB1','FB2','FB3','FB4','FB5','FB6','FB7','FB8','FB9'] : platform === 'whatsapp' ? ['WA1','WA2','WA3'] : ['EM1','EM2','EM3'];
   ids.forEach(id => {
     const card = document.getElementById(pre + 'Card-' + id);
     if (card) {
@@ -1418,14 +1612,21 @@ function switchTacticsTab(tab, btn){
 function voteTactic(btn, vote){
   const card=btn.closest('.tactic-card');
   const id=card.dataset.id;
+  const prevVote=STATE.tactics[id];
   STATE.tactics[id]=vote;
   card.querySelectorAll('.vote-btn').forEach(b=>b.classList.remove('voted'));
   btn.classList.add('voted');
+  card.className=card.className.replace(/\bsel-\w+/g,'');
+  card.classList.add('sel-'+vote);
   const pill=card.querySelector('.status-pill');
   if(pill){
     pill.textContent=vote==='yes'?'Agreed':vote==='maybe'?'Maybe':vote==='later'?'Later':'Skipped';
     pill.className='status-pill pill-'+(vote==='yes'?'agreed':vote==='maybe'?'maybe':'later');
   }
+  if(prevVote && prevVote!==vote){
+    card.classList.add('status-changed');
+  }
+  card.dataset.status=vote;
   updateTacticCounts();
 }
 function updateTacticCounts(){
